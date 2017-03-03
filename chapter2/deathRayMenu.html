@@ -1,27 +1,38 @@
 <!doctype html>
 <html ng-app>
-  <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-  </head>
-  <body>
-    <div ng-controller='DeathrayMenuController'>
-      <button ng-click='toggleMenu()'>Toggle Menu</button>
-      <ul ng-show='menuState.show'>
-        <li ng-click='stun()'>Stun</li>
-        <li ng-click='disintegrate()'>Disintegrate</li>
-        <li ng-click='erase()'>Erase from history</li>
-      </ul>
-    </div>
-    <script>
-      function DeathrayMenuController($scope) {
-        $scope.menuState = { show: false };
+    <head>
+        <script src="../angular.min.js"></script>
+        <style>
+            .menu-disabled-true{color:red;}
+            .menu-disabled-false{color:yellowgreen;}
 
-        $scope.toggleMenu = function() {
-          $scope.menuState.show = !$scope.menuState.show;
-        };
+        </style>
+    </head>
+    <body>
+        <div ng-controller='DeathrayMenuController'>
+            <button ng-click='toggleMenu()'>Toggle Menu</button>
+            <ul ng-show='menuState.show'>
+                <li class="menu-disabled-{{asdasd}}" ng-click='stun()'>Stun</li>
+                <li ng-click='disintegrate()'>Disintegrate</li>
+                <li ng-click='erase()'>Erase from history</li>
+            </ul>
+        </div>
+        <script>
+            function DeathrayMenuController($scope) {
+                $scope.menuState = {show: false};
+                $scope.asdasd = false;
+                $scope.toggleMenu = function () {
+                    $scope.menuState.show = !$scope.menuState.show;
+                };
 
-        // death ray functions left as exercise to reader
-      }
-    </script>
-  </body>
+
+                $scope.stun = function () {
+                    $scope.asdasd = !$scope.asdasd;
+                    console.log("asdasdsad");
+                }
+
+                // death ray functions left as exercise to reader
+            }
+        </script>
+    </body>
 </html>

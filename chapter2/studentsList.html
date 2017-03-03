@@ -1,29 +1,53 @@
 <!doctype html>
-<html ng-app>
-  <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-  </head>
-  <body>
-    <div ng-controller='StudentListController'>
-      <ul>
-        <li ng-repeat='student in students'>
-          <a ng-href='/student/view/{{student.id}}'>{{student.name}}</a>
-        </li>
-      </ul>
-      <button ng-click="insertTom()">Insert Tom</button>
-    </div>
-    <script>
-      var students = [{name:'Mary Contrary', id:'1'},
-        {name:'Jack Sprat', id:'2'},
-        {name:'Jill Hill', id:'3'}];
+<html ng-app='vzx' >
+    <head>
+        <script src="../angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-controller='asd'>
+            <ul>
+                <!--ng-repeat 将生成HTML内所有的标签的拷贝 -->
+                <li ng-repeat='student in zxczxc'>
+                    <a ng-href='/student/view/{{student.id}}'>{{student.name}}</a>
+                </li>
+            </ul>
+            <button ng-click="insertTom()">Insert Tom</button>
+        </div>
+        <script>
 
-      function StudentListController($scope) {
-        $scope.students = students;
+            var students = [{name: '222222222Mary Contrary', id: '1'},
+                {name: '222222222 Sprat', id: '2'},
+                {name: 'Jill Hill', id: '3'}];
 
-        $scope.insertTom = function () {
-          $scope.students.splice(1, 0, {name:'Tom Thumb', id:'4'});
-        };
-      }
-    </script>
-  </body>
+
+            var vzx = angular.module('vzx', []);
+            vzx.controller('asd', function ($scope) {
+                $scope.zxczxc = students;
+                $scope.insertTom = function () {
+                    var ddd = getNowFormatDate();
+                    $scope.zxczxc.splice(2, 0, {name: ' ' + ddd, id: '4'});
+                };
+            });
+
+
+
+            function getNowFormatDate() {
+                var date = new Date();
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+                        + " " + date.getHours() + seperator2 + date.getMinutes()
+                        + seperator2 + date.getSeconds();
+                return currentdate;
+            }
+        </script>
+    </body>
 </html>

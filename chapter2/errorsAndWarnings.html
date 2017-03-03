@@ -1,42 +1,60 @@
 <!doctype html>
 <html ng-app>
-  <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <style type="text/css">
-    .error {
-      background-color: red;
-    }
+    <head>
+        <script src="../angular.min.js"></script>
+        <style type="text/css">
+            .vverror {
+                background-color: red;
+            }
 
-    .warning {
-      background-color: yellow;
-    }
-    </style>
-  </head>
-  <body>
-    <div ng-controller='HeaderController'>
+            .warning {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-controller='HeaderController'>
 
-      <div ng-class='{error: isError, warning: isWarning}'>{{messageText}}</div>
+            <div ng-class='{vverror: isErrorqweqwe, warning: isWarning}'>aaaaaaaa{{messageText}}</div>
+            <button ng-click='showError()'>Simulate Error</button>
+            <button ng-click='showWarning()'>Simulate Warning</button>
+        </div>
+        <script>
+            function HeaderController($scope) {
+                $scope.isErrorqweqwe = false;
+                $scope.isWarning = false;
 
-      <button ng-click='showError()'>Simulate Error</button>
-      <button ng-click='showWarning()'>Simulate Warning</button>
-    </div>
-    <script>
-      function HeaderController($scope) {
-        $scope.isError = false;
-        $scope.isWarning = false;
+                $scope.showError = function () {
+                    var ddd = getNowFormatDate();
+                    $scope.messageText = 'x-------------This is an error!' + ddd;
+                    $scope.isErrorqweqwe = true;
+                    $scope.isWarning = false;
+                };
 
-        $scope.showError = function() {
-          $scope.messageText = 'This is an error!';
-          $scope.isError = true;
-          $scope.isWarning = false;
-        };
-
-        $scope.showWarning = function() {
-          $scope.messageText = 'Just a warning.  Please carry on.';
-          $scope.isWarning = true;
-          $scope.isError = false;
-        };
-      }
-    </script>
-  </body>
+                $scope.showWarning = function () {
+                    var ddd = getNowFormatDate();
+                    $scope.messageText = '33333333333333333Just a warning.  Please carry on.' + ddd;
+                    $scope.isWarning = true;
+                    $scope.isErrorqweqwe = false;
+                };
+            }
+            function getNowFormatDate() {
+                var date = new Date();
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+                        + " " + date.getHours() + seperator2 + date.getMinutes()
+                        + seperator2 + date.getSeconds();
+                return currentdate;
+            }
+        </script>
+    </body>
 </html>

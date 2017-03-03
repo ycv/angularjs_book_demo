@@ -1,31 +1,32 @@
 <!doctype html>
 <html ng-app>
-  <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <style type="text/css">
-      .selected {
-        background-color: lightgreen;
-      }
-    </style>
-  </head>
-  <body>
-    <table ng-controller='RestaurantTableController'>
-      <tr ng-repeat='restaurant in directory' ng-click='selectRestaurant($index)'
-          ng-class='{selected: $index==selectedRow}'>
-        <td>{{restaurant.name}}</td>
-        <td>{{restaurant.cuisine}}</td>
-      </tr>
-    </table>
-    <script>
-      function RestaurantTableController($scope) {
-        $scope.directory = [{name:'The Handsome Heifer', cuisine:'BBQ'},
-          {name:'Green\'s Green Greens', cuisine:'Salads'},
-          {name:'House of Fine Fish', cuisine:'Seafood'}];
+    <head>
+        <script src="../angular.min.js"></script>
+        <style type="text/css">
+            .selected {
+                background-color: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <table ng-controller='RestaurantTableController'>
+            <tr ng-repeat='restaurant in directoryaa' ng-click='selectRestaurant($index)'ng-class='{selected: $index == aaa}'>
+                <td>{{restaurant.name}}</td>
+                <td>{{restaurant.cuisine}}</td>
+            </tr>
+        </table>
+        <script>
+            function RestaurantTableController($scope) {
+                $scope.aaa = 1;
+                $scope.directoryaa = [{name: '111111111me Heifer', cuisine: 'BBQ'},
+                    {name: '22222222Green\'s Green Greens', cuisine: 'Salads'},
+                    {name: '33333333House of Fine Fish', cuisine: 'Seafood'}];
 
-        $scope.selectRestaurant = function(row) {
-          $scope.selectedRow = row;
-        };
-      }
-    </script>
-  </body>
+                $scope.selectRestaurant = function (row213) {
+                    console.log(row213);
+                    $scope.aaa = row213;
+                };
+            }
+        </script>
+    </body>
 </html>
