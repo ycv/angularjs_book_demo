@@ -1,22 +1,45 @@
 <!doctype html>
-<html ng-app>
-  <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-  </head>
-  <body>
-    <form ng-controller="StartUpController">
-      Starting: <input ng-change="computeNeeded()"
-                       ng-model="funding.startingEstimate">
-      Recommendation: {{funding.needed}}
-    </form>
-    <script>
-      function StartUpController($scope) {
-        $scope.funding = { startingEstimate: 0 };
+<html ng-app='vcxz'>
+    <head>
+        <script src="../angular.min.js"></script>
+    </head>
+    <body>
+        <!--可以在界面使用 ng-bind 标识符 显示和更新文本 -->
+        <!--可以使用ng-model属性来绑定元素到模型的属性上  -->
+        <form ng-controller="StartUpController">
+            1111111111111111: <input ng-change="computeNeeded()" ng-model="funding.startingEstimate">   
 
-        $scope.computeNeeded = function() {
-          $scope.funding.needed = $scope.funding.startingEstimate * 10;
-        };
-      }
-    </script>
-  </body>
+            -------------: {{funding.needed}}
+            <hr>
+            <p ng-bind='funding.startingEstimate'></p>
+            <hr>
+            <p ng-bind='funding.needed'></p>
+        </form>
+        <script>
+            var ccaaaass = angular.module('vcxz', []);
+            ccaaaass.controller('StartUpController', function ($scope) {
+                $scope.funding = {startingEstimate: 11};
+                computeNeeded = function () {
+                    $scope.funding.needed = $scope.funding.startingEstimate * 10;
+                };
+                //绑定computeNeeded 方法
+                $scope.$watch('funding.startingEstimate', computeNeeded);
+
+            });
+
+
+
+//            function StartUpController($scope) {
+//                $scope.funding = {startingEstimate: 20};
+//                computeNeeded = function () {
+//                    $scope.funding.needed = $scope.funding.startingEstimate * 10;
+//                };
+//                //绑定computeNeeded 方法
+//                $scope.$watch('funding.startingEstimate', computeNeeded);
+////                $scope.computeNeeded = function () {
+////                    $scope.funding.needed = $scope.funding.startingEstimate * 10;
+////                };
+//            }
+        </script>
+    </body>
 </html>
