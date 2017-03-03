@@ -4,12 +4,12 @@
     </head>
     <body ng-controller='CartController'>
         <h1>Your Shopping Cart</h1>
-        <div ng-repeat='item in items2'>
-            <span>{{item.title}}</span>
-            <input ng-model='item.quantity'>
-            <span>{{item.price| currency}}</span>
-            <span>{{item.price * item.quantity| currency}}</span>
-            <button ng-click="remove($index)">Remove</button>
+        <div ng-repeat='itemaas in items2'>
+            <span>{{itemaas.title}}</span>
+            <input ng-model='itemaas.quantity'>
+            <span>{{itemaas.price| currency}}</span>
+            <span>{{itemaas.price * itemaas.quantity| currency}}</span>
+            <button ng-click="removess($indexasd)">Remove</button>
         </div>
         <script src="../angular.min.js"></script>
         <script>
@@ -20,7 +20,7 @@
                                 {title: '33333Pebbles', quantity: 5, price: 6.95}
                             ];
 
-                            $scope.remove = function (index) {
+                            $scope.removess = function (index) {
                                 $scope.items2.splice(index, 1);
                             };
                         }
