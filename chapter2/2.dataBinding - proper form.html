@@ -1,20 +1,24 @@
-<html ng-app='myApp'>
-<body ng-controller='TextController'>
-<p>{{someText.message}}</p>
+<html ng-app='my2App'>
+    <body ng-controller='TextControlle22222r'>
+        <p>{{someText.messag221e}}</p>
 
-<script
-    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js">
-</script>
+        <script src="../angular.min.js"></script>
 
-<script>
-  var myAppModule = angular.module('myApp', []);
-
-  myAppModule.controller('TextController',
-      function($scope) {
-        var someText = {};
-        someText.message = 'You have started your journey.';
-        $scope.someText = someText;
-      });
-</script>
-</body>
+        <script>
+//                    var myAppModule = angular.module('my2App', []);
+//
+//                    myAppModule.controller('TextController',
+//                            function ($scope) {
+//                                var someText = {};
+//                                someText.messag221e = 'You have 11111111 your journey22222222222222.';
+//                                $scope.someText = someText;
+//                            });
+                    var aaa = angular.module('my2App', []);
+                    aaa.controller('TextControlle22222r', function ($scope) {
+                        var sss = {};
+                        sss.messag221e = '11111.';
+                        $scope.someText = sss;
+                    });
+        </script>
+    </body>
 </html>
