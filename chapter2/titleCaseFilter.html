@@ -1,29 +1,34 @@
 <!doctype html>
+<!-- 2017-03-06 15:07 -->
 <html lang='en' >
-  <head>
-    <title>TitleCaps</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-  </head>
+    <head>
+        <title>TitleCaps</title>
+        <script src="../angular.min.js"></script>
+    </head>
 
-  <body ng-app='HomeModule' ng-controller="HomeController">
-   <h1>{{pageHeading | titleCase}}</h1>
+    <body ng-app='HomeModule' ng-controller="zzxxx">
+        <h1>{{pageHeading| titleCase}}</h1>
+        <h1>{{pageHeading}}</h1>
 
-  <script>
-    function HomeController($scope) {
-      $scope.pageHeading = 'behold the majesty of your page title';
-    }
+        <script>
+                    function zzxxx($scope) {
+                        $scope.pageHeading = 'behold the majesty of your page title vv22 a2';
+                    }
 
-    var homeModule = angular.module('HomeModule', []);
-    homeModule.filter('titleCase', function() {
-      var titleCaseFilter = function(input) {
-        var words = input.split(' ');
-        for (var i = 0; i < words.length; i++) {
-          words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-        }
-        return words.join(' ');
-      };
-      return titleCaseFilter;
-    });
-  </script>
-  </body>
+                    var zxcz = angular.module('HomeModule', []);
+//            zxcz.controller('zzxxx', function ($scope) {
+//                $scope.pageHeading = 'behold the majesty of your page title as2222222222ss';
+//            });
+                    zxcz.filter('titleCase', function () {
+                        var titleCaseFilter = function (input) {
+                            var words = input.split(' ');
+                            for (var i = 0; i < words.length; i++) {
+                                words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+                            }
+                            return words.join('--- ');
+                        };
+                        return titleCaseFilter;
+                    });
+        </script>
+    </body>
 </html>
